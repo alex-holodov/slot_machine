@@ -31,11 +31,11 @@ func (m *machine) SpinOnce() engine.Field {
 }
 
 func (m *machine) LinesCount() int {
-	return PayLines
+	return PayLinesCount
 }
 
-func (m *machine) prepareField(stops [RelesCount]int) [LinesAmount][RelesCount]Symbol {
-	var result [LinesAmount][RelesCount]Symbol
+func (m *machine) prepareField(stops [RelesCount]int) [ViewableLines][RelesCount]Symbol {
+	var result [ViewableLines][RelesCount]Symbol
 
 	for i, pos := range stops {
 		up, down := m.getNeighbours(pos)
@@ -48,7 +48,7 @@ func (m *machine) prepareField(stops [RelesCount]int) [LinesAmount][RelesCount]S
 	return result
 }
 
-func getScaleCount(field [LinesAmount][RelesCount]Symbol) int {
+func getScaleCount(field [ViewableLines][RelesCount]Symbol) int {
 	scales := 0
 	for _, l := range field {
 		for _, s := range l {

@@ -2,12 +2,11 @@ package atkins
 
 const (
 	TotalLines       = 32
-	LinesAmount      = 3
+	ViewableLines    = 3
 	RelesCount       = 5
-	PayLines         = 20
+	PayLinesCount    = 20
 	BonusGames       = 10
 	MinScalesToBonus = 3
-	MiddleLine       = 1
 )
 
 type Symbol int
@@ -74,7 +73,7 @@ var stripsTable = [TotalLines][RelesCount]Symbol{
 	{Butter, Bacon, Steak, Bacon, Buffalo},
 }
 
-var lineTable = [PayLines][RelesCount]int{
+var lineTable = [PayLinesCount][RelesCount]int{
 	{1, 1, 1, 1, 1},
 	{0, 0, 0, 0, 0},
 	{2, 2, 2, 2, 2},

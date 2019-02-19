@@ -3,7 +3,7 @@ package atkins
 import "fmt"
 
 type gameField struct {
-	symbols [LinesAmount][RelesCount]Symbol
+	symbols [ViewableLines][RelesCount]Symbol
 	stops   [RelesCount]int
 	scales  int
 }
@@ -17,7 +17,7 @@ func (g *gameField) GetStops() []int {
 }
 
 func (g *gameField) TotalPrize(bet int64, linesCount int) (int64, error) {
-	if linesCount > PayLines {
+	if linesCount > PayLinesCount {
 		return 0, fmt.Errorf("bad line count")
 	}
 
@@ -36,7 +36,7 @@ func (g *gameField) TotalPrize(bet int64, linesCount int) (int64, error) {
 }
 
 func (g *gameField) Prize(lineNum int) (int64, error) {
-	if lineNum >= PayLines {
+	if lineNum >= PayLinesCount {
 		return 0, fmt.Errorf("bad line number")
 	}
 
